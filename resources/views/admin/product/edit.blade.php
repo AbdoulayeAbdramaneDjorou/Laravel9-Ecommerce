@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Edit Category :'.$data->title)
+@section('title', 'Edit Product :'.$data->title)
 
 @section('content')
 
@@ -11,12 +11,12 @@
        <div class="container-fluid">
          <div class="row mb-2">
            <div class="col-sm-6">
-             <h1>Edit Category:{{$data->title}}</h1>
+             <h1>Edit Product:{{$data->title}}</h1>
            </div>
            <div class="col-sm-6">
              <ol class="breadcrumb float-sm-right">
                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-               <li class="breadcrumb-item active">Edit Category</li>
+               <li class="breadcrumb-item active">Edit Product</li>
              </ol>
            </div>
          </div>
@@ -29,17 +29,17 @@
        <!-- Default box -->
        <div class="card card-primary">
                      <div class="card-header">
-                       <h3 class="card-title">Category elements</h3>
+                       <h3 class="card-title">Product elements</h3>
                      </div>
                      <!-- /.card-header -->
                      <!-- form start -->
-                     <form role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post">
+                     <form role="form" action="{{route('admin.product.update',['id'=>$data->id])}}" method="post">
                      @csrf
                        <div class="card-body">
                        <div class="form-group">
-                         <label for="exampleInputEmail1"> Parent Category </label>
-                         <select class="form-control select2" name="parent_id" style="">
-                          <option value="0" selected="selected">Main Category</option>
+                         <label for="exampleInputEmail1"> Parent Product </label>
+                         <select class="form-control select2" name="category_id" style="">
+
                          </select>
                        </div>
 
@@ -57,6 +57,29 @@
                            <div class="form-group">
                               <label for="exampleInputEmail1">Description</label>
                               <input type="text" class="form-control" name="description" value="{{$data->description}}" >
+                           </div>
+
+                           <div class="form-group">
+                               <label for="exampleInputEmail1">Price</label>
+                               <input type="number" class="form-control" name="price" value="{{$data->price}}">
+                           </div>
+                            <div class="form-group">
+                               <label for="exampleInputEmail1">Quantity</label>
+                               <input type="number" class="form-control" name="quantity" value="{{$data->quantity}}">
+                            </div>
+                           <div class="form-group">
+                                <label for="exampleInputEmail1">Minimum Quantity</label>
+                                <input type="number" class="form-control" name="minquantity"value="{{$data->minquantity}}">
+                           </div>
+                           <div class="form-group">
+                                <label for="exampleInputEmail1">Tax %</label>
+                                <input type="number" class="form-control" name="tax" value="{{$data->tax}}">
+                           </div>
+                           <div class="form-group">
+                               <label for="exampleInputEmail1">Detail info</label>
+                               <textarea class="form-control" name="detail" >
+                              {{$data->detail}}
+                            </textarea>
                            </div>
 
                          <div class="form-group">

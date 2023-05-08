@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
+@section('title', 'Add Product')
 
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -10,12 +10,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add Category</h1>
+                        <h1>Add Product</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                            <li class="breadcrumb-item active">Add Category</li>
+                            <li class="breadcrumb-item active">Add Product</li>
                         </ol>
                     </div>
                 </div>
@@ -27,20 +27,18 @@
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Category Elements</h3>
+                    <h3 class="card-title">Product Elements</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form role="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data" >
+                <form role="form" action="{{route('admin.product.store')}}" method="post" enctype="multipart/form-data" >
                     @csrf
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label >Parent Category</label>
+                            <label >Parent Product</label>
 
-                            <select class="form-control select2" name="parent_id" style="width: 100%;">
-                                <option value="0" selected="selected">Main Category</option>
-
+                            <select class="form-control select2" name="category_id" style="width: 100%;">
                             </select>
 
                         </div>
@@ -52,10 +50,32 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Keywrods</label>
                             <input type="text" class="form-control" name="keywords" placeholder="Keywrods">
-                        </div>                        <div class="form-group">
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Description</label>
                             <input type="text" class="form-control" name="description" placeholder="Description">
                         </div>
+                         <div class="form-group">
+                              <label for="exampleInputEmail1">Price</label>
+                              <input type="number" class="form-control" name="price" value="0">
+                         </div>
+                          <div class="form-group">
+                               <label for="exampleInputEmail1">Quantity</label>
+                                <input type="number" class="form-control" name="quantity" value="0">
+                          </div>
+                           <div class="form-group">
+                                <label for="exampleInputEmail1">Minimum Quantity</label>
+                                <input type="number" class="form-control" name="minquantity"value="0">
+                           </div>
+                            <div class="form-group">
+                                 <label for="exampleInputEmail1">Tax %</label>
+                                 <input type="number" class="form-control" name="tax" value="0">
+                            </div>
+                             <div class="form-group">
+                                  <label for="exampleInputEmail1">Detail info</label>
+                                  <textarea class="form-control" name="detail" value="0">
+                                  </textarea>
+                             </div>
 
                         <div class="form-group">
                             <label for="exampleInputFile">Image</label>
